@@ -1,0 +1,108 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="About | Baptiste JULIENNE" description="About | Baptiste JULIENNE">
+	<div class="stack gap-20">
+		<main class="wrapper about">
+			<Hero
+				title="About"
+				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
+			>
+				<img
+					width="1553"
+					height="873"
+					src="/assets/at-work.jpg"
+					alt="Baptiste JULIENNE at work with a colleague"
+				/>
+			</Hero>
+
+			<section>
+				<h2 class="section-title">Bio</h2>
+				<div class="content">
+					<p>
+						Currently a first-year Master's student (M1) in the professional field of software engineering at ISEN Brest, 
+						I have consolidated a solid technical base thanks to my training in integrated engineering preparatory courses, 
+						while at the same time following the Digital Economy and Technologies Cycle. This enabled me to acquire dual skills, 
+						combining the technological aspects of engineering with the fundamentals of marketing, economics and entrepreneurship.
+					
+						Through these enriching educational experiences, I developed a passion for software engineering, while cultivating an interest in the digital economy and entrepreneurship.
+					</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="section-title">Searching for</h2>
+				<div class="content">
+					<p>
+						I'm currently looking for new opportunities to use my technical and management skills in a professional context, and to further explore the intersection between technology, economics and entrepreneurship.
+
+						Please do not hesitate to contact me if you are interested in an internship in software engineering. I'd love to see how my skills could be put to good use in your company.
+					</p>
+				</div>
+			</section>
+		</main>
+
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.about {
+		display: flex;
+		flex-direction: column;
+		gap: 3.5rem;
+	}
+
+	img {
+		margin-top: 1.5rem;
+		border-radius: 1.5rem;
+		box-shadow: var(--shadow-md);
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		color: var(--gray-200);
+	}
+
+	.section-title {
+		grid-column-start: 1;
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.content {
+		grid-column: 2 / 4;
+	}
+
+	.content :global(a) {
+		text-decoration: 1px solid underline transparent;
+		text-underline-offset: 0.25em;
+		transition: text-decoration-color var(--theme-transition);
+	}
+
+	.content :global(a:hover),
+	.content :global(a:focus) {
+		text-decoration-color: currentColor;
+	}
+
+	@media (min-width: 50em) {
+		.about {
+			display: grid;
+			grid-template-columns: 1fr 60% 1fr;
+		}
+
+		.about > :global(:first-child) {
+			grid-column-start: 2;
+		}
+
+		section {
+			display: contents;
+			font-size: var(--text-lg);
+		}
+	}
+</style>
